@@ -10,6 +10,7 @@ public class LeadManagementApplication {
 		System.out.println("In Lead Management Main Class");
 		SpringApplication.run(LeadManagementApplication.class, args);
 		System.out.println("In Lead Management Main Class End");
+		System.out.println("In Lead Management Main Class End2");
 	}
 
 }
