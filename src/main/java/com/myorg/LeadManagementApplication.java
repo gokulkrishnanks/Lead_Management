@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LeadManagementApplication {
 
 	public static void main(String[] args) {
-		System.out.println("In Lead Management Main Class");
+		System.out.println("In Lead Management Main Class change...");
 		SpringApplication.run(LeadManagementApplication.class, args);
 		System.out.println("In Lead Management Main Class End");
 		System.out.println("In Lead Management Main Class End2");
