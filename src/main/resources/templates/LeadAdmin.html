@@ -1,0 +1,274 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<h3>Source Details</h3>
+<body>
+<form th:object="${leadadmin}" method="post" action="/getvalues">
+    <table width="100%">
+        <tr>
+            <td width="15%">
+                <label for="SOURCETYPE">Source Type </label></td>
+            <td width="35%">
+<select name="source_type" th:field=*{source_type} onchange=""> 
+            <option value="">--select--</option>
+            <option th:each="entry:${sourcelist.entrySet()}" th:value="${entry.key}" th:text="${entry.value}">
+            <!--<option th:each="list:${slist}" th:value="${list}" th:text="${list}">--> 
+            
+ </select>
+            </td>
+            <td width="15%"></td>
+            <td width="35%"></td>
+ </tr>
+ <tr>
+     <td width="15%">
+         <label for="SOURCENAME">Source Name </label></td>
+     <td width="35%">
+<input type="text" name="source_Name" size="25" th:field="*{source_name}"></td>
+     <td width="15%">
+         <label for="SOURCETYPE">Source ID </label></td>
+     <td width="35%">
+<input type="text" name="source_ID" size="25" th:field="*{source_id}">
+     </td>
+</tr>
+    </table>
+<h3>Lead Details</h3>
+<table width="100%">
+    <tr>
+        <td width="15%">
+            <label for="LEADID">Lead ID </label></td>
+        <td width="35%">
+            <input type="text" name="Lead_ID" size="25" th:field="*{lead_id}"></td>
+    <td width="15%">
+        <label for="FULLNAME">Full Name </label></td>
+    <td width="35%">
+        <input type="text" name="Full_Name" size="25" th:field="*{full_name}"></td>
+    </tr>
+    <tr>
+    <td width="15%">    
+        <label for="NICNUMBER">NIC Number</label></td>
+    <td width="35%">
+        <input type="text" name="NIC_Number" size="25" th:field="*{nic1}"></td>
+    <td width="15%">
+        <label for="NIC2">NIC2 </label></td>
+    <td width="35%">
+        <input type="text" name="Nic_2" size="25" th:field="*{nic2}"></td>
+    </tr>
+    <tr>
+    <td width="15%">
+        <label for="GENDER">Gender </label></td>
+    <td width="35%">
+<select name="Gender"> 
+            <option value="">--select--</option>
+            <option value="">Male</option>
+            <option value="">Female</option>
+</select></td>
+<td width="15%">
+    <label for="DOB">DOB </label></td>
+<td width="35%">
+    <input type="date" name="Dob" size="25" th:field="*{dob}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="CONTACTNO">Primary Contact Number </label></td>
+        <td width="35%">
+            <input type="text" name="Contact_No" size="25" th:field="*{Primarycontact_no}"></td>
+        <td width="15%">
+            <label for="ALTERNATENO">Alternate Number </label></td>
+        <td width="35%">
+            <input type="text" name="Alternate_No" size="25" th:field="*{alternate_no}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="PROVINCE">Province </label></td>
+        <td width="35%">
+            <input type="text" name="Province" size="25" th:field="*{province}"></td>
+        <td width="15%">
+            <label for="DISTRICT">District </label></td>
+        <td width="35%">
+            <input type="text" name="District" size="25" th:field="*{district}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="DIVISION">Divisional Secretary's Division </label></td>
+        <td width="35%">
+            <input type="text" name="Division" size="25" th:field="*{divison}"></td>
+        <td width="15%">
+            <label for="CITY">City </label></td>
+        <td width="35%">
+            <input type="text" name="City" size="25" th:field="*{city}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="ADDRESS1">Address Line1 </label></td>
+        <td width="35%">
+            <input type="text" name="Address1" size="25" th:field="*{address1}"></td>
+        <td width="15%">
+            <label for="ADDRESS2">Address Line2 </label></td>
+        <td width="35%">
+            <input type="text" name="Address2" size="25" th:field="*{address2}"></td>
+    </tr>
+    
+</table>
+<h3>Product Details</h3>
+<table width="100%">
+<tr>
+        <td width="15%">
+            <label for="PRODUCT1">Product1 </label></td>
+        <td width="35%">
+        <select name="product1" id="productid1" onchange="getrange1()"> 
+            <option value="">--select--</option>
+            <option value="sample Product1">sample Product1</option>
+            <option value="sample Product2">sample Product2</option> 
+            <!-- <option th:each="list:${productlist1}" th:value="${list}" th:text="${list}"> -->
+</select>
+            </td>
+        <td width="15%">
+            <label for="RANGE1">Range </label></td>
+        <td width="35%">
+            <input type="text" name="range1" id="rangeid1" size="25" th:field="*{range1}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="PRODUCT2">Product2 </label></td>
+        <td width="35%">
+            <select name="product2"> 
+            <option value="">--select--</option>
+            <option value="">sample Product1</option>
+            <option value="">sample Product2</option>
+</select></td>
+        <td width="15%">
+            <label for="RANGE2">Range </label></td>
+        <td width="35%">
+            <input type="text" name="range2" size="25" th:field="*{range2}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="PRODUCT3">Product3 </label></td>
+        <td width="35%">
+            <select name="product3"> 
+            <option value="">--select--</option>
+            <option value="">sample Product1</option>
+            <option value="">sample Product3</option>
+</select></td>
+        <td width="15%">
+            <label for="RANGE3">Range </label></td>
+        <td width="35%">
+            <input type="text" name="range3" size="25" th:field="*{range3}"></td>
+    </tr>
+</table>
+<h3>Assign Frames</h3>
+<table width="100%">
+<tr>
+        <td width="15%">
+            <label for="REGION NAME">Region Name </label></td>
+        <td width="35%">
+            <input type="text" name="region_name" size="25" th:field="*{region_name}"></td>
+        <td width="15%">
+            <label for="REGION CODE">Region code </label></td>
+        <td width="35%">
+            <input type="text" name="region_code" size="25" th:field="*{region_code}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="BRANCHNAME">Branch Name </label></td>
+        <td width="35%">
+            <input type="text" name="branch_name" size="25" th:field="*{branch_name}"></td>
+        <td width="15%">
+            <label for="BRANCHCODE">Branch Code </label></td>
+        <td width="35%">
+            <input type="text" name="branch_code" size="25" th:field="*{branch_code}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="ASSIGNTO">Assign To </label></td>
+        <td width="35%">
+            <input type="text" name="assign_to" size="25" th:field="*{assign_to}"></td>
+        <td width="15%">
+            <label for="EMPLOYEENAME">Employee Name </label></td>
+        <td width="35%">
+            <input type="text" name="emnployee_name" size="25" th:field="*{employee_name}"></td>
+    </tr>
+    <tr>
+        <td width="15%">
+            <label for="STATUS">Status </label></td>
+        <td width="35%">
+            <input type="text" name="status" size="25" th:field="*{status}"></td>
+        <td width="15%">
+            </td>
+        <td width="35%">
+            </td>
+    </tr>
+    <tr>
+    	<td>
+    	 <input type="button" value="Add">
+    	 <input type="button" value="Modify">
+    	 <input type="button" value="Delete">
+    	</td>
+    </tr>
+</table>
+<table border="1">
+	<tr>
+		<th>Select</th>
+		<th>Lead ID</th>
+		<th>Source Type</th>
+		<th>Source Name</th>
+		<th>Source ID</th>
+		<th>Full Name</th>
+		<th>NIC 1</th>
+		<th>Primary Contact Number</th>
+		<th>Region Name</th>
+		<th>Region Code</th>
+		<th>Branch Name</th>
+		<th>Branch Code</th>
+		<th>Assign To</th>
+		<th>Employee Name</th>
+		<th>Status</th>
+	</tr>
+	<tr>
+		<td>a</td>
+		<td>b</td>
+		<td>c</td>
+		<td>d</td>
+		<td>e</td>
+	</tr>
+</table>
+<table>
+	<tr>
+		<td>
+			<input type="submit" value="save"/>
+		</td>
+	</tr>
+</table>
+<script src="js/jquery-min.js"></script>
+
+<script type="text/javascript">
+
+function getrange1() {
+    var product1=document.getElementById('productid1').value;
+    if (product1 != '') {
+        $.ajax({
+            type: 'GET',
+            url: "/getrange1/" + product1,
+            success: function(data) {
+            	alert("data-->  "+data);
+            	document.getElementById('rangeid1').value=data;
+            },
+            error: function() {
+                alert("fetch failed");
+            }
+
+        });
+    }
+}
+
+</script>
+</form>
+</body>
+</html>
